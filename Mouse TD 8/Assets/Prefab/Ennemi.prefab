@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 7699144111998387584}
   - component: {fileID: 4727343145681927803}
   - component: {fileID: 5840689291236631868}
-  m_Layer: 0
+  - component: {fileID: 4543379069641994828}
+  m_Layer: 8
   m_Name: Ennemi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d9c27818ac0ba744b8f21a4c1fec367, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 10
+  _speed: 15
 --- !u!54 &5840689291236631868
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -75,6 +76,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4543379069641994828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3879336250252138117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb6bbf930291d7f468affb5c43652436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pv: 100
+  _pvMax: 100
 --- !u!1 &6238425567020281458
 GameObject:
   m_ObjectHideFlags: 0
@@ -85,7 +100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 186874497131587060}
   - component: {fileID: 6004104850657762959}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +154,7 @@ GameObject:
   - component: {fileID: 9002287447147461309}
   - component: {fileID: 4113960721236864517}
   - component: {fileID: 8193564264223928584}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}

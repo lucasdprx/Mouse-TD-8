@@ -7,22 +7,11 @@ public class Ennemi : MonoBehaviour, IPoolObject<Ennemi>
     private Transform _tileTarget;
     private List<Transform> _tilesMap = new List<Transform>();
     private int _tileIndex;
+    private float _distanceTraveled;
 
     [SerializeField] private float _speed;
     
-    public void SetTilesMap(List<Transform> tilesMap)
-    {
-        _tilesMap = tilesMap;
-        _tileTarget = _tilesMap[0];
-        _tileIndex = 0;
-    }
     
-    public void SetPool(Pool<Ennemi> pool)
-    {
-        if (pool == null) return;
-
-        _pool = pool;
-    }
     private void Update()
     {
         MoveEnnemi();
@@ -32,6 +21,7 @@ public class Ennemi : MonoBehaviour, IPoolObject<Ennemi>
         if (_tileTarget == null) return;
         
         transform.position = Vector3.MoveTowards(transform.position, _tileTarget.position, _speed * Time.deltaTime);
+        _distanceTraveled += _speed * Time.deltaTime;
         
         if (transform.position != _tileTarget.position) return;
         
@@ -40,10 +30,23 @@ public class Ennemi : MonoBehaviour, IPoolObject<Ennemi>
         
         _tileTarget = _tilesMap[_tileIndex];
     }
+    public void SetTilesMap(List<Transform> tilesMap)
+    {
+        _tilesMap = tilesMap;
+        _tileTarget = _tilesMap[0];
+        _tileIndex = 0;
+    }
+    public float GetDistanceTraveled() => _distanceTraveled;
+    public void ResetDistanceTraveled() => _distanceTraveled = 0;
+    public Pool<Ennemi> GetPool() => _pool;
+    public void SetPool(Pool<Ennemi> pool)
+    {
+        if (pool == null) return;
 
+        _pool = pool;
+    }
     private void OnTriggerEnter(Collider other)
     {
-        print("OnTriggerEnter");
         if (other.gameObject.layer == LayerMask.NameToLayer("End"))
         {
             _pool.Release(this);
