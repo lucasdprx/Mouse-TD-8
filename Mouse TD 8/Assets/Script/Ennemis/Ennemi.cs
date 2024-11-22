@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,10 +9,15 @@ public class Ennemi : MonoBehaviour, IPoolObject<Ennemi>
     private List<Transform> _tilesMap = new List<Transform>();
     private int _tileIndex;
     private float _distanceTraveled;
+    private EnnemiLife _ennemiLife;
 
     [SerializeField] private float _speed;
-    
-    
+    private void Start()
+    {
+        _ennemiLife = GetComponent<EnnemiLife>();
+    }
+
+
     private void Update()
     {
         MoveEnnemi();
@@ -47,9 +53,10 @@ public class Ennemi : MonoBehaviour, IPoolObject<Ennemi>
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("End"))
-        {
-            _pool.Release(this);
-        }
+        if (other.gameObject.layer != LayerMask.NameToLayer("End"))
+            return;
+        
+        _ennemiLife.ResetPV();
+        _pool.Release(this);
     }
 }

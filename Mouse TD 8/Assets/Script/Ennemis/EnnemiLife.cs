@@ -12,6 +12,7 @@ public class EnnemiLife : MonoBehaviour
         _ennemi = GetComponent<Ennemi>();
     }
     public float GetPv() => _pv;
+    public void ResetPV() => _pv = _pvMax;
     public void RemoveLife(float amount)
     {
         _pv -= amount;
@@ -20,6 +21,6 @@ public class EnnemiLife : MonoBehaviour
         
         _ennemi.GetPool().Release(_ennemi);
         _ennemi.ResetDistanceTraveled();
-        _pv = _pvMax;
+        ResetPV();
     }
 }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6678826727072571700}
   - component: {fileID: 696847469212066417}
   m_Layer: 0
-  m_Name: Defense
+  m_Name: Defense 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49,6 +49,57 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _canAttack: 0
+  _ennemis:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &696847469212066417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,10 +112,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 452837cae6accd6478bcde7d32a8e2d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 5
-  _radiusAttack: 3
-  _speedAttack: 0.25
-  _areaAttack: 0
+  _damage: 500
+  _radiusAttack: 10
+  _speedAttack: 1
+  _areaAttack: 1
   _radiusAreaAttack: 3
   _includeLayer:
     serializedVersion: 2

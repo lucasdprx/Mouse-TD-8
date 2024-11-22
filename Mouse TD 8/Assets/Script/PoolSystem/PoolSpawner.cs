@@ -1,9 +1,6 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.Serialization;
-
 public class PoolSpawner : MonoBehaviour
 {
     [FormerlySerializedAs("_prefabEnnemi")]
@@ -14,8 +11,9 @@ public class PoolSpawner : MonoBehaviour
     
     private Map _tilesMap;
     private ComponentPool<Ennemi> _poolEnnemi;
-    private const float _spawnRate = 0.1f;
+    private const float _spawnRate = 0.75f;
     private float _timer;
+    private bool _start;
     private void Awake()
     {
         _poolEnnemi = new ComponentPool<Ennemi>(_prefabEnnemi, 50, preAllocationCount);
@@ -23,6 +21,8 @@ public class PoolSpawner : MonoBehaviour
     }
     private void Update()
     {
+        if (!_start) return;
+        
         _timer += Time.deltaTime;
         if (_timer < _spawnRate) return;
         _timer = 0;
@@ -32,4 +32,5 @@ public class PoolSpawner : MonoBehaviour
         ennemi.SetTilesMap(_tilesMap._tilesMap);
         _ennemiList.Add(ennemi);
     }
+    public void StartSpawn(bool value) => _start = value;
 }
