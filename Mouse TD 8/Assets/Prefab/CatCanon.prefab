@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6678826727072571700}
   - component: {fileID: 696847469212066417}
   m_Layer: 0
-  m_Name: Defense 1
+  m_Name: CatCanon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61,14 +61,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 452837cae6accd6478bcde7d32a8e2d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 10
-  _radiusAttack: 8
-  _speedAttack: 3
-  _areaAttack: 1
-  _radiusAreaAttack: 2
+  _radiusAttack: 2
+  _speedAttack: 1.5
   _includeLayer:
     serializedVersion: 2
     m_Bits: 256
+  _areaAttack: 1
+  _radiusAreaAttack: 1.25
+  _freezeAttack: 0
+  _freezeTime: 0.5
+  _slowAttack: 0
+  _slowTime: 5
 --- !u!1 &2405716302721114580
 GameObject:
   m_ObjectHideFlags: 0

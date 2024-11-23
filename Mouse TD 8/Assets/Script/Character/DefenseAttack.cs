@@ -50,7 +50,6 @@ public class DefenseAttack : MonoBehaviour
         }
         else
         {
-            transform.DOLookAt(ennemiFirst.transform.position, 0.25f);
             SimpleAttack(ennemiFirst, _defenseStat);
         }
     }
@@ -65,6 +64,7 @@ public class DefenseAttack : MonoBehaviour
             }
             else
             {
+                transform.DOLookAt(ennemiFirst.transform.position, 0.25f);
                 StartCoroutine(SlowEnnemi(ennemiFirst, defenseStat));
             }
         }
@@ -98,17 +98,19 @@ public class DefenseAttack : MonoBehaviour
         ennemi.SetSpeed(speed);
         ennemi._isFrozen = false;
     }
-    private static void SimpleAttack(Ennemi ennemi, DefenseStat defenseStat)
+    private void SimpleAttack(Ennemi ennemi, DefenseStat defenseStat)
     {
+        transform.DOLookAt(ennemi.transform.position, 0.25f);
         EnnemiLife ennemiLife = ennemi.GetComponent<EnnemiLife>();
         ennemiLife.RemoveLife();
     }
-    private static void AreaAttack(Ennemi ennemi, DefenseStat defenseStat)
+    private void AreaAttack(Ennemi ennemi, DefenseStat defenseStat)
     {
         Collider[] colliders = new Collider[50];
         int size = Physics.OverlapSphereNonAlloc(ennemi.transform.position, defenseStat._radiusAreaAttack, colliders, defenseStat._includeLayer);
         if (size <= 0) return;
-
+        transform.DOLookAt(ennemi.transform.position, 0.25f);
+        
         for (int i = 0; i < size; i++)
         {
             EnnemiLife ennemiLife = colliders[i].GetComponentInParent<EnnemiLife>();
