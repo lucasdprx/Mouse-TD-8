@@ -33,6 +33,8 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
     public void OnDrag(PointerEventData eventData)
     {
+        if (_defensePrefab == null) return;
+        
         _draggedObject.transform.position = GetMousePosition();
 
         //Set color of sprite
@@ -42,6 +44,8 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        if (_defensePrefab == null) return;
+        
         int count = Physics.OverlapSphereNonAlloc(_draggedObject.transform.position, 0.5f, _listColliders);
 
         if (count > 1)

@@ -41,4 +41,5 @@ public class EnnemiLife : MonoBehaviour
 
         SetColor(_indexColor);
     }
+    public int GetIndexColor() => _indexColor;
 }

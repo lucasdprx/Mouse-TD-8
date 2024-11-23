@@ -25,6 +25,10 @@ public class Acceleration : MonoBehaviour
                 Time.timeScale = 1.0f;
                 _textAcceleration.text = "1x";
                 break;
+            default:
+                Time.timeScale = 1.0f;
+                _textAcceleration.text = "1x";
+                break;
         }
     }
 }

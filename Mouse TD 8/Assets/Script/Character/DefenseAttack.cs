@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -8,7 +9,7 @@ public class DefenseAttack : MonoBehaviour
     public bool _canAttack;
     private DefenseStat _defenseStat;
     private float _timer;
-    private Collider[] _ennemis = new Collider[50];
+    private readonly Collider[] _ennemis = new Collider[50];
     private Transform _transform;
     private void Start()
     {
@@ -39,11 +40,63 @@ public class DefenseAttack : MonoBehaviour
         {
             AreaAttack(ennemiFirst, _defenseStat);
         }
+        else if (_defenseStat._freezeAttack)
+        {
+            FreezeAttack(ennemis, _defenseStat);
+        }
+        else if (_defenseStat._slowAttack)
+        {
+            SlowAttack(ennemis, _defenseStat);
+        }
         else
         {
             transform.DOLookAt(ennemiFirst.transform.position, 0.25f);
             SimpleAttack(ennemiFirst, _defenseStat);
         }
+    }
+    private void SlowAttack(List<Ennemi> ennemis, DefenseStat defenseStat)
+    {
+        for (int i = 0; i < ennemis.Count; i++)
+        {
+            Ennemi ennemiFirst = GetFirstEnnemi(ennemis);
+            if (ennemiFirst._isSlow)
+            {
+                ennemis.Remove(ennemiFirst);
+            }
+            else
+            {
+                StartCoroutine(SlowEnnemi(ennemiFirst, defenseStat));
+            }
+        }
+    }
+    private static IEnumerator SlowEnnemi(Ennemi ennemi, DefenseStat defenseStat)
+    {
+        float speed = ennemi.GetSpeed();
+        ennemi.SetSpeed(speed * 0.5f);
+        ennemi._isSlow = true;
+        yield return new WaitForSeconds(defenseStat._slowTime);
+        ennemi.SetSpeed(speed);
+        ennemi._isSlow = false;
+    }
+    private void FreezeAttack(List<Ennemi> ennemis, DefenseStat defenseStat)
+    {
+        foreach (Ennemi ennemi in ennemis)
+        {
+            EnnemiLife ennemiLife = ennemi._ennemiLife;
+            ennemiLife.RemoveLife();
+            if (ennemiLife.GetIndexColor() < 0) continue;
+            
+            StartCoroutine(FreezeEnnemi(ennemi, defenseStat));
+        }
+    }
+    private static IEnumerator FreezeEnnemi(Ennemi ennemi, DefenseStat defenseStat)
+    {
+        float speed = ennemi.GetSpeed();
+        ennemi.SetSpeed(0f);
+        ennemi._isFrozen = true;
+        yield return new WaitForSeconds(defenseStat._freezeTime);
+        ennemi.SetSpeed(speed);
+        ennemi._isFrozen = false;
     }
     private static void SimpleAttack(Ennemi ennemi, DefenseStat defenseStat)
     {

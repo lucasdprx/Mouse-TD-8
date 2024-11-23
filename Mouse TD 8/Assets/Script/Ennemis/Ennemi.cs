@@ -1,18 +1,17 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Ennemi : MonoBehaviour, IPoolObject<Ennemi>
 {
     private Pool<Ennemi> _pool;
-    
     private Transform _tileTarget;
     private List<Transform> _tilesMap = new List<Transform>();
     private int _tileIndex;
-    
     private float _distanceTraveled;
     
-    public EnnemiLife _ennemiLife;
+    [HideInInspector] public EnnemiLife _ennemiLife;
+    [HideInInspector] public bool _isSlow;
+    [HideInInspector] public bool _isFrozen;
 
     [SerializeField] private float _speed;
     private void Awake()
@@ -61,6 +60,7 @@ public class Ennemi : MonoBehaviour, IPoolObject<Ennemi>
         if (other.gameObject.layer != LayerMask.NameToLayer("End"))
             return;
         
+        Life.instance.RemoveLife(1);
         _pool.Release(this);
     }
 }

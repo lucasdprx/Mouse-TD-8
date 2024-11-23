@@ -1,16 +1,35 @@
+using TMPro;
 using UnityEngine;
 
 public class Life : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public static Life instance;
+
+    [SerializeField] private int life;
+    [SerializeField] private TextMeshProUGUI _textLife;
+
+    private void Awake()
     {
+        if (instance != null) return;
+        instance = this;
         
+        _textLife.text = life.ToString();
     }
 
-    // Update is called once per frame
-    void Update()
+    public int GetLife()
     {
+        return life;
+    }
+
+    public void RemoveLife(int number)
+    {
+        life -= number;
+        if (life <= 0)
+        {
+            life = 0; 
+            Debug.Log("Game Over");
+        }
         
+        _textLife.text = life.ToString();
     }
 }

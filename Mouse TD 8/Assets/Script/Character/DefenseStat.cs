@@ -9,11 +9,27 @@ public class DefenseStatCustomEditor : Editor
     {
         DefenseStat defenseStatSystem = target as DefenseStat;
         base.OnInspectorGUI();
-        SerializeProperty("_areaAttack");
         
         if (defenseStatSystem._areaAttack)
         {
+            SerializeProperty("_areaAttack");
             SerializeProperty("_radiusAreaAttack");
+        }
+        else if (defenseStatSystem._freezeAttack)
+        {
+            SerializeProperty("_freezeAttack");
+            SerializeProperty("_freezeTime");
+        }
+        else if (defenseStatSystem._slowAttack)
+        {
+            SerializeProperty("_slowAttack");
+            SerializeProperty("_slowTime");
+        }
+        else
+        {
+            SerializeProperty("_areaAttack");
+            SerializeProperty("_freezeAttack");
+            SerializeProperty("_slowAttack");
         }
         serializedObject.ApplyModifiedProperties();
     }
@@ -28,7 +44,15 @@ public class DefenseStat : MonoBehaviour
 {
     public float _radiusAttack = 2f;
     public float _speedAttack = 0.25f;
+    public LayerMask _includeLayer;
+    
     [HideInInspector] public bool _areaAttack = false;
     [HideInInspector] public float _radiusAreaAttack = 2f;
-    public LayerMask _includeLayer;
+    
+    [HideInInspector] public bool _freezeAttack = false;
+    [HideInInspector] public float _freezeTime = 0.5f;
+    
+    [HideInInspector] public bool _slowAttack = false;
+    [HideInInspector] public float _slowTime = 5.0f;
+    
 }
