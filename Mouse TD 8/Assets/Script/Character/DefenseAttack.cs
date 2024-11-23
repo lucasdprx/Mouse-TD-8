@@ -34,6 +34,7 @@ public class DefenseAttack : MonoBehaviour
             ennemis.Add(_ennemis[i].GetComponentInParent<Ennemi>());
         
         Ennemi ennemiFirst = GetFirstEnnemi(ennemis);
+        
         if (_defenseStat._areaAttack)
         {
             AreaAttack(ennemiFirst, _defenseStat);
@@ -47,7 +48,7 @@ public class DefenseAttack : MonoBehaviour
     private static void SimpleAttack(Ennemi ennemi, DefenseStat defenseStat)
     {
         EnnemiLife ennemiLife = ennemi.GetComponent<EnnemiLife>();
-        ennemiLife.RemoveLife(defenseStat._damage);
+        ennemiLife.RemoveLife();
     }
     private static void AreaAttack(Ennemi ennemi, DefenseStat defenseStat)
     {
@@ -60,7 +61,7 @@ public class DefenseAttack : MonoBehaviour
             EnnemiLife ennemiLife = colliders[i].GetComponentInParent<EnnemiLife>();
             if (ennemiLife == null) continue;
             
-            ennemiLife.RemoveLife(defenseStat._damage);
+            ennemiLife.RemoveLife();
         }
     }
     private static Ennemi GetFirstEnnemi(List<Ennemi> ennemiList)

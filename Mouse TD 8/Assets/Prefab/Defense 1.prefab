@@ -49,57 +49,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _canAttack: 0
-  _ennemis:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!114 &696847469212066417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,11 +61,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 452837cae6accd6478bcde7d32a8e2d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 500
-  _radiusAttack: 10
-  _speedAttack: 1
+  _damage: 10
+  _radiusAttack: 8
+  _speedAttack: 3
   _areaAttack: 1
-  _radiusAreaAttack: 3
+  _radiusAreaAttack: 2
   _includeLayer:
     serializedVersion: 2
     m_Bits: 256

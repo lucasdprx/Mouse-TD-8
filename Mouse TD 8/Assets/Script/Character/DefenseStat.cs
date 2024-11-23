@@ -26,7 +26,6 @@ public class DefenseStatCustomEditor : Editor
 #endif
 public class DefenseStat : MonoBehaviour
 {
-    public float _damage = 10f;
     public float _radiusAttack = 2f;
     public float _speedAttack = 0.25f;
     [HideInInspector] public bool _areaAttack = false;

@@ -5,19 +5,21 @@ using UnityEngine;
 public class Ennemi : MonoBehaviour, IPoolObject<Ennemi>
 {
     private Pool<Ennemi> _pool;
+    
     private Transform _tileTarget;
     private List<Transform> _tilesMap = new List<Transform>();
     private int _tileIndex;
+    
     private float _distanceTraveled;
-    private EnnemiLife _ennemiLife;
+    
+    public EnnemiLife _ennemiLife;
 
     [SerializeField] private float _speed;
-    private void Start()
+    private void Awake()
     {
         _ennemiLife = GetComponent<EnnemiLife>();
     }
-
-
+    
     private void Update()
     {
         MoveEnnemi();
@@ -43,6 +45,7 @@ public class Ennemi : MonoBehaviour, IPoolObject<Ennemi>
         _tileIndex = 0;
     }
     public float GetDistanceTraveled() => _distanceTraveled;
+    public void SetDistanceTraveled(float distanceTraveled) => _distanceTraveled = distanceTraveled;
     public void ResetDistanceTraveled() => _distanceTraveled = 0;
     public Pool<Ennemi> GetPool() => _pool;
     public void SetPool(Pool<Ennemi> pool)
@@ -51,12 +54,13 @@ public class Ennemi : MonoBehaviour, IPoolObject<Ennemi>
 
         _pool = pool;
     }
+    public float GetSpeed() => _speed;
+    public void SetSpeed(float speed) => _speed = speed;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer != LayerMask.NameToLayer("End"))
             return;
         
-        _ennemiLife.ResetPV();
         _pool.Release(this);
     }
 }

@@ -34,6 +34,7 @@ public class Pool<T> : IPool<T> where T : class, IPoolObject<T>
         for (int i = 0; i < numberOfObjects; i++)
         {
             T pooledObject = InstantiatePoolObject();
+            _aliveObjectsCount++;
             Release(pooledObject);
         }
     }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6678826727072571700}
   - component: {fileID: 696847469212066417}
   m_Layer: 0
-  m_Name: Defense
+  m_Name: CatKunai
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61,9 +61,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 452837cae6accd6478bcde7d32a8e2d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 5
   _radiusAttack: 3
-  _speedAttack: 0.25
+  _speedAttack: 0.5
   _areaAttack: 0
   _radiusAreaAttack: 3
   _includeLayer:

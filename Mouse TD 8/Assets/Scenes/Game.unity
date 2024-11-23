@@ -4517,8 +4517,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _prefabEnnemi: {fileID: 3879336250252138117, guid: c182998dcc3dfec46979e986dc781b82, type: 3}
-  preAllocationCount: 10
-  _ennemiList: []
+  _waves:
+  - levelEnnemi: 01000000
+    numberEnnemi: 14000000
+  - levelEnnemi: 02000000
+    numberEnnemi: 23000000
 --- !u!4 &2066224704
 Transform:
   m_ObjectHideFlags: 0
