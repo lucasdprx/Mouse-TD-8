@@ -9,7 +9,7 @@ public class DefenseAttack : MonoBehaviour
     public bool _canAttack;
     private DefenseStat _defenseStat;
     private float _timer;
-    private readonly Collider[] _ennemis = new Collider[50];
+    private readonly Collider[] _enemies = new Collider[50];
     private Transform _transform;
     private void Start()
     {
@@ -25,107 +25,101 @@ public class DefenseAttack : MonoBehaviour
         
         _timer += Time.deltaTime;
         if (_timer < _defenseStat._speedAttack) return;
-        _timer = 0;
         
-        int size = Physics.OverlapSphereNonAlloc(_transform.position, _defenseStat._radiusAttack, _ennemis, _defenseStat._includeLayer);
+        int size = Physics.OverlapSphereNonAlloc(_transform.position, _defenseStat._radiusAttack, _enemies, _defenseStat._includeLayer);
         if (size <= 0) return;
+        _timer = 0;
 
-        List<Ennemi> ennemis = new List<Ennemi>();
+        List<Enemy> enemies = new List<Enemy>();
         for (int i = 0; i < size; i++)
-            ennemis.Add(_ennemis[i].GetComponentInParent<Ennemi>());
+            enemies.Add(_enemies[i].GetComponentInParent<Enemy>());
         
-        Ennemi ennemiFirst = GetFirstEnnemi(ennemis);
+        Enemy enemyFirst = GetFirstEnemy(enemies);
         
         if (_defenseStat._areaAttack)
-        {
-            AreaAttack(ennemiFirst, _defenseStat);
-        }
+            AreaAttack(enemyFirst, _defenseStat);
+        
         else if (_defenseStat._freezeAttack)
-        {
-            FreezeAttack(ennemis, _defenseStat);
-        }
+            FreezeAttack(enemies, _defenseStat);
+        
         else if (_defenseStat._slowAttack)
-        {
-            SlowAttack(ennemis, _defenseStat);
-        }
+            SlowAttack(enemies, _defenseStat);
+        
         else
-        {
-            SimpleAttack(ennemiFirst, _defenseStat);
-        }
+            SimpleAttack(enemyFirst, _defenseStat);
     }
-    private void SlowAttack(List<Ennemi> ennemis, DefenseStat defenseStat)
+    private void SlowAttack(List<Enemy> enemies, DefenseStat defenseStat)
     {
-        for (int i = 0; i < ennemis.Count; i++)
+        for (int i = 0; i < enemies.Count; i++)
         {
-            Ennemi ennemiFirst = GetFirstEnnemi(ennemis);
-            if (ennemiFirst._isSlow)
+            Enemy enemyFirst = GetFirstEnemy(enemies);
+            if (enemyFirst._isSlow)
             {
-                ennemis.Remove(ennemiFirst);
+                enemies.Remove(enemyFirst);
             }
             else
             {
-                transform.DOLookAt(ennemiFirst.transform.position, 0.25f);
-                StartCoroutine(SlowEnnemi(ennemiFirst, defenseStat));
+                transform.DOLookAt(enemyFirst.transform.position, 0.25f);
+                StartCoroutine(SlowEnnemi(enemyFirst, defenseStat));
             }
         }
     }
-    private static IEnumerator SlowEnnemi(Ennemi ennemi, DefenseStat defenseStat)
+    private static IEnumerator SlowEnnemi(Enemy enemy, DefenseStat defenseStat)
     {
-        float speed = ennemi.GetSpeed();
-        ennemi.SetSpeed(speed * 0.5f);
-        ennemi._isSlow = true;
+        float speed = enemy.GetSpeed();
+        enemy.SetSpeed(speed * 0.5f);
+        enemy._isSlow = true;
         yield return new WaitForSeconds(defenseStat._slowTime);
-        ennemi.SetSpeed(speed);
-        ennemi._isSlow = false;
+        enemy.SetSpeed(speed);
+        enemy._isSlow = false;
     }
-    private void FreezeAttack(List<Ennemi> ennemis, DefenseStat defenseStat)
+    private void FreezeAttack(List<Enemy> enemies, DefenseStat defenseStat)
     {
-        foreach (Ennemi ennemi in ennemis)
+        foreach (Enemy enemy in enemies)
         {
-            EnnemiLife ennemiLife = ennemi._ennemiLife;
-            ennemiLife.RemoveLife();
-            if (ennemiLife.GetIndexColor() < 0) continue;
+            EnemyLife enemyLife = enemy.enemyLife;
+            enemyLife.RemoveLife();
+            if (enemyLife.GetIndexColor() < 0) continue;
+            if (enemy._isFrozen) continue;
             
-            StartCoroutine(FreezeEnnemi(ennemi, defenseStat));
+            StartCoroutine(FreezeEnnemi(enemy, defenseStat));
         }
     }
-    private static IEnumerator FreezeEnnemi(Ennemi ennemi, DefenseStat defenseStat)
+    private static IEnumerator FreezeEnnemi(Enemy enemy, DefenseStat defenseStat)
     {
-        float speed = ennemi.GetSpeed();
-        ennemi.SetSpeed(0f);
-        ennemi._isFrozen = true;
+        enemy.SetSpeed(0f);
+        enemy._isFrozen = true;
         yield return new WaitForSeconds(defenseStat._freezeTime);
-        ennemi.SetSpeed(speed);
-        ennemi._isFrozen = false;
+        enemy.enemyLife.SetColor(enemy.enemyLife.GetIndexColor());
     }
-    private void SimpleAttack(Ennemi ennemi, DefenseStat defenseStat)
+    private void SimpleAttack(Enemy enemy, DefenseStat defenseStat)
     {
-        transform.DOLookAt(ennemi.transform.position, 0.25f);
-        EnnemiLife ennemiLife = ennemi.GetComponent<EnnemiLife>();
-        ennemiLife.RemoveLife();
+        transform.DOLookAt(enemy.transform.position, 0.25f);
+        EnemyLife enemyLife = enemy.GetComponent<EnemyLife>();
+        enemyLife.RemoveLife();
     }
-    private void AreaAttack(Ennemi ennemi, DefenseStat defenseStat)
+    private void AreaAttack(Enemy enemy, DefenseStat defenseStat)
     {
         Collider[] colliders = new Collider[50];
-        int size = Physics.OverlapSphereNonAlloc(ennemi.transform.position, defenseStat._radiusAreaAttack, colliders, defenseStat._includeLayer);
+        int size = Physics.OverlapSphereNonAlloc(enemy.transform.position, defenseStat._radiusAreaAttack, colliders, defenseStat._includeLayer);
         if (size <= 0) return;
-        transform.DOLookAt(ennemi.transform.position, 0.25f);
+        transform.DOLookAt(enemy.transform.position, 0.25f);
         
         for (int i = 0; i < size; i++)
         {
-            EnnemiLife ennemiLife = colliders[i].GetComponentInParent<EnnemiLife>();
-            if (ennemiLife == null) continue;
+            EnemyLife enemyLife = colliders[i].GetComponentInParent<EnemyLife>();
+            if (enemyLife == null) continue;
             
-            ennemiLife.RemoveLife();
+            enemyLife.RemoveLife();
         }
     }
-    private static Ennemi GetFirstEnnemi(List<Ennemi> ennemiList)
+    private static Enemy GetFirstEnemy(List<Enemy> enemyList)
     {
-        Ennemi ennemiFirst = ennemiList[0];
-        foreach (Ennemi t in ennemiList.Where(t => ennemiFirst.GetDistanceTraveled() < t.GetDistanceTraveled()))
+        Enemy enemyFirst = enemyList[0];
+        foreach (Enemy t in enemyList.Where(t => enemyFirst.GetDistanceTraveled() < t.GetDistanceTraveled()))
         {
-            ennemiFirst = t;
+            enemyFirst = t;
         }
-        return ennemiFirst;
+        return enemyFirst;
     }
 }

@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -13,14 +12,14 @@ public class PoolSpawner : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _textWave;
     
     private Map _tilesMap;
-    private ComponentPool<Ennemi> _poolEnnemi;
+    private ComponentPool<Enemy> _poolEnnemi;
     private bool _start;
     private int _waveIndex = 0;
     private const int preAllocationCount = 50;
     private Button _buttonStart;
     private void Awake()
     {
-        _poolEnnemi = new ComponentPool<Ennemi>(_prefabEnnemi, 50, preAllocationCount);
+        _poolEnnemi = new ComponentPool<Enemy>(_prefabEnnemi, 500, preAllocationCount);
         _tilesMap = GetComponent<Map>();
         _textWave.text = "Wave " + 1 + " / " + _waves.Count;
     }
@@ -55,11 +54,11 @@ public class PoolSpawner : MonoBehaviour
         {
             for (int j = 0; j < wave.numberEnnemi[i]; j++)
             {
-                Ennemi ennemi = _poolEnnemi.Get();
-                ennemi.transform.position = transform.position + Vector3.back * 1.5f * j;
-                ennemi.SetDistanceTraveled(-1.5f * j);
-                ennemi.SetTilesMap(_tilesMap._tilesMap);
-                ennemi._ennemiLife.SetColor(wave.levelEnnemi[i] - 1);
+                Enemy enemy = _poolEnnemi.Get();
+                enemy.transform.position = transform.position + Vector3.back * 1.5f * j;
+                enemy.SetDistanceTraveled(-1.5f * j);
+                enemy.SetTilesMap(_tilesMap._tilesMap);
+                enemy.enemyLife.SetColor(wave.levelEnnemi[i] - 1);
             }
         }
     }

@@ -1,22 +1,24 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-public class Ennemi : MonoBehaviour, IPoolObject<Ennemi>
+public class Enemy : MonoBehaviour, IPoolObject<Enemy>
 {
-    private Pool<Ennemi> _pool;
+    private Pool<Enemy> _pool;
     private Transform _tileTarget;
     private List<Transform> _tilesMap = new List<Transform>();
     private int _tileIndex;
     private float _distanceTraveled;
     
-    [HideInInspector] public EnnemiLife _ennemiLife;
+    [FormerlySerializedAs("_enemyLife")]
+    [HideInInspector] public EnemyLife enemyLife;
     [HideInInspector] public bool _isSlow;
     [HideInInspector] public bool _isFrozen;
 
     [SerializeField] private float _speed;
     private void Awake()
     {
-        _ennemiLife = GetComponent<EnnemiLife>();
+        enemyLife = GetComponent<EnemyLife>();
     }
     
     private void Update()
@@ -46,8 +48,8 @@ public class Ennemi : MonoBehaviour, IPoolObject<Ennemi>
     public float GetDistanceTraveled() => _distanceTraveled;
     public void SetDistanceTraveled(float distanceTraveled) => _distanceTraveled = distanceTraveled;
     public void ResetDistanceTraveled() => _distanceTraveled = 0;
-    public Pool<Ennemi> GetPool() => _pool;
-    public void SetPool(Pool<Ennemi> pool)
+    public Pool<Enemy> GetPool() => _pool;
+    public void SetPool(Pool<Enemy> pool)
     {
         if (pool == null) return;
 
@@ -62,5 +64,6 @@ public class Ennemi : MonoBehaviour, IPoolObject<Ennemi>
         
         Life.instance.RemoveLife(1);
         _pool.Release(this);
+        ResetDistanceTraveled();
     }
 }

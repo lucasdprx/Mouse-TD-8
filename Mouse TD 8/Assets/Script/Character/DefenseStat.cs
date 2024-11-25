@@ -45,6 +45,8 @@ public class DefenseStat : MonoBehaviour
     public float _radiusAttack = 2f;
     public float _speedAttack = 0.25f;
     public LayerMask _includeLayer;
+    public int _price = 400;
+    public GameObject _uiUpgrade;
     
     [HideInInspector] public bool _areaAttack = false;
     [HideInInspector] public float _radiusAreaAttack = 2f;

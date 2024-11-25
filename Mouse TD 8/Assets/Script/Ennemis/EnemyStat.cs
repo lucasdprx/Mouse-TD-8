@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnnemiStat
+public class EnemyStat
 {
     public Color color;
     public float speed;
