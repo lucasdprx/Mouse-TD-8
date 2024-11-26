@@ -5,8 +5,6 @@ using UnityEngine.Serialization;
 using UnityEngine.UI;
 public class PoolSpawner : MonoBehaviour
 {
-    [FormerlySerializedAs("_prefabEnnemi")]
-    
     [SerializeField] private GameObject _prefabEnnemi;
     [SerializeField] private List<NumberEnnemi> _waves = new List<NumberEnnemi>();
     [SerializeField] private TextMeshProUGUI _textWave;
@@ -50,15 +48,15 @@ public class PoolSpawner : MonoBehaviour
             return;
         
         NumberEnnemi wave = _waves[waveIndex];
-        for (int i = 0; i < wave.levelEnnemi.Count; i++)
+        for (int i = 0; i < wave.levelEnemy.Count; i++)
         {
-            for (int j = 0; j < wave.numberEnnemi[i]; j++)
+            for (int j = 0; j < wave.numberEnemy[i]; j++)
             {
                 Enemy enemy = _poolEnnemi.Get();
                 enemy.transform.position = transform.position + Vector3.back * 1.5f * j;
                 enemy.SetDistanceTraveled(-1.5f * j);
                 enemy.SetTilesMap(_tilesMap._tilesMap);
-                enemy.enemyLife.SetColor(wave.levelEnnemi[i] - 1);
+                enemy.enemyLife.SetColor(wave.levelEnemy[i] - 1);
             }
         }
     }
@@ -67,6 +65,6 @@ public class PoolSpawner : MonoBehaviour
 [System.Serializable]
 public class NumberEnnemi
 {
-    public List<int> levelEnnemi;
-    public List<int> numberEnnemi;
+    public List<int> levelEnemy;
+    public List<int> numberEnemy;
 }

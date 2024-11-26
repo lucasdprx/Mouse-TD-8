@@ -11,7 +11,7 @@ public class EnemyLife : MonoBehaviour
         new EnemyStat { color = Color.green, speed = 5, life = 2 },
         new EnemyStat { color = Color.cyan, speed = 7, life = 3 },
         new EnemyStat { color = Color.magenta, speed = 9, life = 5 },
-        new EnemyStat { color = Color.black, speed = 12, life = 10 },
+        new EnemyStat { color = Color.black, speed = 12, life = 10 }
     };
     private int _indexColor = 0;
 
@@ -40,6 +40,8 @@ public class EnemyLife : MonoBehaviour
             _enemy.GetPool().Release(_enemy);
             _enemy.ResetDistanceTraveled();
             _enemy.transform.position = Vector3.zero;
+            _enemy._isFrozen = false;
+            _enemy._isSlow = false;
             return;
         }
         

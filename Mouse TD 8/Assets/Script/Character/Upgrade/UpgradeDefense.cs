@@ -3,8 +3,8 @@ using UnityEngine;
 public class UpgradeDefense : MonoBehaviour
 {
     private Camera _camera;
-    
     private LayerMask _defenseLayerMask;
+    private DefenseStat _uiUpgrade;
     private void Start()
     {
         _camera = Camera.main;
@@ -21,10 +21,18 @@ public class UpgradeDefense : MonoBehaviour
         DefenseStat upgradeDefense = hit.transform.GetComponentInParent<DefenseStat>();
         if (upgradeDefense == null || upgradeDefense._uiUpgrade == null) 
             return;
+
         
         upgradeDefense._uiUpgrade.SetActive(!upgradeDefense._uiUpgrade.activeSelf);
         SpriteRenderer spriteRenderer = upgradeDefense.GetComponentInChildren<SpriteRenderer>();
         spriteRenderer.enabled = upgradeDefense._uiUpgrade.activeSelf;
+        
+        if (_uiUpgrade != null && _uiUpgrade != upgradeDefense)
+        {
+            _uiUpgrade._uiUpgrade.SetActive(false);
+            _uiUpgrade.GetComponentInChildren<SpriteRenderer>().enabled = false;
+        }
+        _uiUpgrade = upgradeDefense;
     }
     private Vector3 GetMousePosition() => _camera.ScreenToWorldPoint(Input.mousePosition);
 }

@@ -64,6 +64,8 @@ public class Enemy : MonoBehaviour, IPoolObject<Enemy>
         
         Life.instance.RemoveLife(1);
         _pool.Release(this);
+        _isFrozen = false;
+        _isSlow = false;
         ResetDistanceTraveled();
     }
 }

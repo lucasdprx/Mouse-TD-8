@@ -50,18 +50,18 @@ public class DefenseAttack : MonoBehaviour
     }
     private void SlowAttack(List<Enemy> enemies, DefenseStat defenseStat)
     {
-        for (int i = 0; i < enemies.Count; i++)
+        int count = enemies.Count;
+        for (int i = 0; i < count; i++)
         {
             Enemy enemyFirst = GetFirstEnemy(enemies);
             if (enemyFirst._isSlow)
             {
                 enemies.Remove(enemyFirst);
+                continue;
             }
-            else
-            {
-                transform.DOLookAt(enemyFirst.transform.position, 0.25f);
-                StartCoroutine(SlowEnnemi(enemyFirst, defenseStat));
-            }
+            transform.DOLookAt(enemyFirst.transform.position, 0.25f);
+            StartCoroutine(SlowEnnemi(enemyFirst, defenseStat));
+            break;
         }
     }
     private static IEnumerator SlowEnnemi(Enemy enemy, DefenseStat defenseStat)
@@ -90,6 +90,7 @@ public class DefenseAttack : MonoBehaviour
         enemy.SetSpeed(0f);
         enemy._isFrozen = true;
         yield return new WaitForSeconds(defenseStat._freezeTime);
+        enemy._isFrozen = false;
         enemy.enemyLife.SetColor(enemy.enemyLife.GetIndexColor());
     }
     private void SimpleAttack(Enemy enemy, DefenseStat defenseStat)
