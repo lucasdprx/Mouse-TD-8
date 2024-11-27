@@ -25,11 +25,10 @@ public class DefenseAttack : MonoBehaviour
         
         _timer += Time.deltaTime;
         if (_timer < _defenseStat._speedAttack) return;
-        
+        _timer = 0;
         int size = Physics.OverlapSphereNonAlloc(_transform.position, _defenseStat._radiusAttack, _enemies, _defenseStat._includeLayer);
         if (size <= 0) return;
-        _timer = 0;
-
+        
         List<Enemy> enemies = new List<Enemy>();
         for (int i = 0; i < size; i++)
             enemies.Add(_enemies[i].GetComponentInParent<Enemy>());
@@ -54,7 +53,7 @@ public class DefenseAttack : MonoBehaviour
         for (int i = 0; i < count; i++)
         {
             Enemy enemyFirst = GetFirstEnemy(enemies);
-            if (enemyFirst._isSlow)
+            if (enemyFirst._isSlow || enemyFirst._isFrozen)
             {
                 enemies.Remove(enemyFirst);
                 continue;
@@ -77,7 +76,7 @@ public class DefenseAttack : MonoBehaviour
     {
         foreach (Enemy enemy in enemies)
         {
-            EnemyLife enemyLife = enemy.enemyLife;
+            EnemyLife enemyLife = enemy.GetComponent<EnemyLife>();
             enemyLife.RemoveLife();
             if (enemyLife.GetIndexColor() < 0) continue;
             if (enemy._isFrozen) continue;
@@ -87,11 +86,12 @@ public class DefenseAttack : MonoBehaviour
     }
     private static IEnumerator FreezeEnnemi(Enemy enemy, DefenseStat defenseStat)
     {
+        float speed = enemy.GetSpeed();
         enemy.SetSpeed(0f);
         enemy._isFrozen = true;
         yield return new WaitForSeconds(defenseStat._freezeTime);
         enemy._isFrozen = false;
-        enemy.enemyLife.SetColor(enemy.enemyLife.GetIndexColor());
+        enemy.SetSpeed(speed);
     }
     private void SimpleAttack(Enemy enemy, DefenseStat defenseStat)
     {

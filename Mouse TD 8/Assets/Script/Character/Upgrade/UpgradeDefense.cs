@@ -15,14 +15,13 @@ public class UpgradeDefense : MonoBehaviour
         if (!Input.GetMouseButtonDown(0))
             return;
 
-        if (!Physics.Raycast(GetMousePosition(), Vector3.down, out RaycastHit hit, 100f, _defenseLayerMask))
+        if (!Physics.Raycast(GetMousePosition(), Vector3.down, out RaycastHit hit, Mathf.Infinity, _defenseLayerMask))
             return;
-        
+
         DefenseStat upgradeDefense = hit.transform.GetComponentInParent<DefenseStat>();
         if (upgradeDefense == null || upgradeDefense._uiUpgrade == null) 
             return;
 
-        
         upgradeDefense._uiUpgrade.SetActive(!upgradeDefense._uiUpgrade.activeSelf);
         SpriteRenderer spriteRenderer = upgradeDefense.GetComponentInChildren<SpriteRenderer>();
         spriteRenderer.enabled = upgradeDefense._uiUpgrade.activeSelf;

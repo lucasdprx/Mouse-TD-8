@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyStat
+public struct EnemyStat
 {
     public Color color;
     public float speed;

@@ -34,10 +34,12 @@ public class UpgradeInfo : MonoBehaviour
         if (_level < _listDescription.Count)
         {
             _descriptionLevel.text = _listDescription[_level];
+            _textPrice.text = _listPrice[_level].ToString();
             return;
         }
             
         _descriptionLevel.text = "Level max";
+        _textPrice.transform.parent.gameObject.SetActive(false);
         button.interactable = false;
     }
 }

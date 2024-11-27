@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -11,16 +12,18 @@ public class Enemy : MonoBehaviour, IPoolObject<Enemy>
     private float _distanceTraveled;
     
     [FormerlySerializedAs("_enemyLife")]
-    [HideInInspector] public EnemyLife enemyLife;
     [HideInInspector] public bool _isSlow;
     [HideInInspector] public bool _isFrozen;
 
     [SerializeField] private float _speed;
-    private void Awake()
+    private float _speedCopy;
+
+    private void Start()
     {
-        enemyLife = GetComponent<EnemyLife>();
+        _speedCopy = _speed;
+        print(_speedCopy);
     }
-    
+
     private void Update()
     {
         MoveEnnemi();
@@ -64,8 +67,13 @@ public class Enemy : MonoBehaviour, IPoolObject<Enemy>
         
         Life.instance.RemoveLife(1);
         _pool.Release(this);
+    }
+    private void OnDisable()
+    {
+        ResetDistanceTraveled();
+        transform.position = Vector3.zero;
         _isFrozen = false;
         _isSlow = false;
-        ResetDistanceTraveled();
+        SetSpeed(_speedCopy);
     }
 }

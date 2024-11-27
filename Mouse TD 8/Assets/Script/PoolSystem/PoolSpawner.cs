@@ -56,7 +56,7 @@ public class PoolSpawner : MonoBehaviour
                 enemy.transform.position = transform.position + Vector3.back * 1.5f * j;
                 enemy.SetDistanceTraveled(-1.5f * j);
                 enemy.SetTilesMap(_tilesMap._tilesMap);
-                enemy.enemyLife.SetColor(wave.levelEnemy[i] - 1);
+                enemy.GetComponent<EnemyLife>().SetColor(wave.levelEnemy[i] - 1);
             }
         }
     }

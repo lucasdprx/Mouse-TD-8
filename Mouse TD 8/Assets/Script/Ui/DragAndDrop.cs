@@ -12,7 +12,7 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     private Camera _camera;
     private SpriteRenderer _spriteRenderer;
     private readonly Collider[] _listColliders = new Collider[10];
-    private const float _radius = 0.49f;
+    private const float _radius = 0.48f;
     private bool _canDrag;
 
     private void Start()
@@ -39,7 +39,7 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (_defensePrefab == null || !_canDrag) return;
+        if (_defensePrefab == null || !_canDrag ||_draggedObject == null) return;
         
         _draggedObject.transform.position = GetMousePosition();
 
@@ -50,7 +50,7 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (_defensePrefab == null || !_canDrag) return;
+        if (_defensePrefab == null || !_canDrag ||_draggedObject == null) return;
         
         int count = Physics.OverlapSphereNonAlloc(_draggedObject.transform.position, _radius, _listColliders);
 
