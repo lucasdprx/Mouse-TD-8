@@ -2831,7 +2831,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _textMoney: {fileID: 1334688790}
-  _money: 1000
+  _money: 3000
 --- !u!1001 &975149992
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5437,8 +5437,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefabEnnemi: {fileID: 3879336250252138117, guid: c182998dcc3dfec46979e986dc781b82, type: 3}
   _waves:
-  - levelEnemy: 01000000
-    numberEnemy: 14000000
+  - levelEnemy: 06000000
+    numberEnemy: 01000000
   - levelEnemy: 01000000
     numberEnemy: 23000000
   - levelEnemy: 0100000002000000

@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
@@ -62,7 +63,6 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
             _spriteRenderer.color = Color.gray - new Color{ a = 0.5f };
             _draggedObject.GetComponent<DefenseAttack>()._canAttack = true;
             Money.instance.RemoveMoney(_defenseStat._price);
-            _draggedObject.transform.LookAt(Vector3.zero + Vector3.back * _camera.transform.position.y);
         }
     }
 }

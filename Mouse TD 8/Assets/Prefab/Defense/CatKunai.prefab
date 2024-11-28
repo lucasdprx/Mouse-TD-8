@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 696847469212066417}
   - component: {fileID: 8904678374197754093}
   - component: {fileID: 1880360682245722089}
+  - component: {fileID: -525704266892819152}
   m_Layer: 9
   m_Name: CatKunai
   m_TagString: Untagged
@@ -71,12 +72,14 @@ MonoBehaviour:
     m_Bits: 256
   _price: 150
   _uiUpgrade: {fileID: 3438303037006938531}
+  _particle: {fileID: 0}
   _areaAttack: 0
   _radiusAreaAttack: 3
   _freezeAttack: 0
   _freezeTime: 0.5
   _slowAttack: 0
   _slowTime: 5
+  _slowMultiplier: 0.5
 --- !u!114 &8904678374197754093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,6 +112,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cd4dbf7d328d6f4f8e153b8eb99612e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-525704266892819152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87253729939891153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2be60811b4a49949a0f009f04179fcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _shootEffectPrefab: {fileID: 635821860403210525, guid: 78d59c2d7fe87564692c62aa21f4f1a8, type: 3}
+  _speed: 22
+  _duration: 0.08
 --- !u!1 &545255696835770972
 GameObject:
   m_ObjectHideFlags: 0

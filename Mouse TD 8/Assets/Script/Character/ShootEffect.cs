@@ -4,8 +4,8 @@ using UnityEngine;
 public class ShootEffect : MonoBehaviour
 {
     [SerializeField] private GameObject _shootEffectPrefab; //prefab
-    [SerializeField] private float _speed = 10f;
-    [SerializeField] private float _duration = 1f;
+    [SerializeField] private float _speed = 22f;
+    [SerializeField] private float _duration = 0.08f;
     
     private float _timer = 0f;
     private GameObject _shootEffect;

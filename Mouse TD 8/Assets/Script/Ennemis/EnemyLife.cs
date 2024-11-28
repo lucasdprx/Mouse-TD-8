@@ -13,7 +13,7 @@ public class EnemyLife : MonoBehaviour
         new EnemyStat { id = 2, nextId = 1 , color = Color.green  , speed = 4, life = 2 },
         new EnemyStat { id = 3, nextId = 2 , color = Color.cyan   , speed = 5, life = 3 },
         new EnemyStat { id = 4, nextId = 3 , color = Color.magenta, speed = 7, life = 5 },
-        new EnemyStat { id = 5, nextId = 4 , color = Color.black  , speed = 3, life = 15 }
+        new EnemyStat { id = 5, nextId = 4 , color = Color.black  , speed = 1, life = 100 }
     };
     private List<EnemyStat> _colorsCopy = new List<EnemyStat>();
     private int _currentId = 0;

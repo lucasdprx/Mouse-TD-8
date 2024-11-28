@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2939711339832430075}
   - component: {fileID: 1142642563370689266}
   m_Layer: 0
-  m_Name: BallBlack
+  m_Name: BallSlower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.9861317, y: 10.554553, z: -2.5254576}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -56,7 +56,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f4026d9afed46a845add514846635459, type: 2}
+  - {fileID: 2100000, guid: d771645f9ac10d241b18277409d02a55, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

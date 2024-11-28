@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 696847469212066417}
   - component: {fileID: 6460717225446312572}
   - component: {fileID: 8994274567681662553}
+  - component: {fileID: 4910362166541177726}
   m_Layer: 9
   m_Name: CatSlower
   m_TagString: Untagged
@@ -116,6 +117,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c4e47dfd91b3f41991308b313cc83d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4910362166541177726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87253729939891153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2be60811b4a49949a0f009f04179fcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _shootEffectPrefab: {fileID: 635821860403210525, guid: a7a6d39f33ea6a94e90bdbf0003d839f, type: 3}
+  _speed: 22
+  _duration: 0.08
 --- !u!1 &1465211641344981219
 GameObject:
   m_ObjectHideFlags: 0

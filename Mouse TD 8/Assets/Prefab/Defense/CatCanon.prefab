@@ -125,8 +125,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _shootEffectPrefab: {fileID: 635821860403210525, guid: 9bae7a1be7af69149a5b0750b914d50c, type: 3}
-  _speed: 10
-  _duration: 1
+  _speed: 22
+  _duration: 0.08
 --- !u!1 &1838918188292548303
 GameObject:
   m_ObjectHideFlags: 0

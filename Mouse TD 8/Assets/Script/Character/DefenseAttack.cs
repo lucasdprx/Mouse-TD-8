@@ -59,6 +59,9 @@ public class DefenseAttack : MonoBehaviour
                 continue;
             }
             transform.DOLookAt(enemyFirst.transform.position, 0.25f);
+            ShootEffect shootEffect = defenseStat.GetComponent<ShootEffect>();
+            if (shootEffect != null) 
+                shootEffect.enabled = true;
             StartCoroutine(SlowEnnemi(enemyFirst, defenseStat));
             break;
         }
@@ -95,19 +98,23 @@ public class DefenseAttack : MonoBehaviour
     }
     private void SimpleAttack(Enemy enemy, DefenseStat defenseStat)
     {
-        transform.DOLookAt(enemy.transform.position, 0.25f);
+        transform.DOLookAt(enemy.transform.position, 0);
         EnemyLife enemyLife = enemy.GetComponent<EnemyLife>();
         enemyLife.RemoveLife();
         
         if (_defenseStat._particle != null)
             _defenseStat._particle.Play();
+        
+        ShootEffect shootEffect = defenseStat.GetComponent<ShootEffect>();
+        if (shootEffect != null) 
+            shootEffect.enabled = true;
     }
     private void AreaAttack(Enemy enemy, DefenseStat defenseStat)
     {
         Collider[] colliders = new Collider[50];
         int size = Physics.OverlapSphereNonAlloc(enemy.transform.position, defenseStat._radiusAreaAttack, colliders, defenseStat._includeLayer);
         if (size <= 0) return;
-        transform.DOLookAt(enemy.transform.position, 0.25f);
+        transform.DOLookAt(enemy.transform.position, 0);
         
         for (int i = 0; i < size; i++)
         {
