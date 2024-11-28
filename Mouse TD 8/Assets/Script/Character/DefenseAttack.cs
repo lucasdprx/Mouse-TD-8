@@ -65,8 +65,8 @@ public class DefenseAttack : MonoBehaviour
     }
     private static IEnumerator SlowEnnemi(Enemy enemy, DefenseStat defenseStat)
     {
-        float speed = enemy.GetSpeed();
-        enemy.SetSpeed(speed * 0.5f);
+        float speed = enemy.GetInitSpeed();
+        enemy.SetSpeed(speed * defenseStat._slowMultiplier);
         enemy._isSlow = true;
         yield return new WaitForSeconds(defenseStat._slowTime);
         enemy.SetSpeed(speed);
@@ -78,7 +78,7 @@ public class DefenseAttack : MonoBehaviour
         {
             EnemyLife enemyLife = enemy.GetComponent<EnemyLife>();
             enemyLife.RemoveLife();
-            if (enemyLife.GetIndexColor() < 0) continue;
+            if (enemyLife.GetCurrentId() < 0) continue;
             if (enemy._isFrozen) continue;
             
             StartCoroutine(FreezeEnnemi(enemy, defenseStat));
@@ -86,7 +86,7 @@ public class DefenseAttack : MonoBehaviour
     }
     private static IEnumerator FreezeEnnemi(Enemy enemy, DefenseStat defenseStat)
     {
-        float speed = enemy.GetSpeed();
+        float speed = enemy.GetInitSpeed();
         enemy.SetSpeed(0f);
         enemy._isFrozen = true;
         yield return new WaitForSeconds(defenseStat._freezeTime);
@@ -98,6 +98,9 @@ public class DefenseAttack : MonoBehaviour
         transform.DOLookAt(enemy.transform.position, 0.25f);
         EnemyLife enemyLife = enemy.GetComponent<EnemyLife>();
         enemyLife.RemoveLife();
+        
+        if (_defenseStat._particle != null)
+            _defenseStat._particle.Play();
     }
     private void AreaAttack(Enemy enemy, DefenseStat defenseStat)
     {
@@ -113,6 +116,10 @@ public class DefenseAttack : MonoBehaviour
             
             enemyLife.RemoveLife();
         }
+        
+        ShootEffect shootEffect = defenseStat.GetComponent<ShootEffect>();
+        if (shootEffect != null) 
+            shootEffect.enabled = true;
     }
     private static Enemy GetFirstEnemy(List<Enemy> enemyList)
     {

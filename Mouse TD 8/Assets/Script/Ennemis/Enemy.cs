@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -16,12 +15,12 @@ public class Enemy : MonoBehaviour, IPoolObject<Enemy>
     [HideInInspector] public bool _isFrozen;
 
     [SerializeField] private float _speed;
-    private float _speedCopy;
+    private float _initSpeed;
 
     private void Start()
     {
-        _speedCopy = _speed;
-        print(_speedCopy);
+        _initSpeed = _speed;
+        print(_initSpeed);
     }
 
     private void Update()
@@ -50,7 +49,7 @@ public class Enemy : MonoBehaviour, IPoolObject<Enemy>
     }
     public float GetDistanceTraveled() => _distanceTraveled;
     public void SetDistanceTraveled(float distanceTraveled) => _distanceTraveled = distanceTraveled;
-    public void ResetDistanceTraveled() => _distanceTraveled = 0;
+    private void ResetDistanceTraveled() => _distanceTraveled = 0;
     public Pool<Enemy> GetPool() => _pool;
     public void SetPool(Pool<Enemy> pool)
     {
@@ -59,6 +58,7 @@ public class Enemy : MonoBehaviour, IPoolObject<Enemy>
         _pool = pool;
     }
     public float GetSpeed() => _speed;
+    public float GetInitSpeed() => _initSpeed;
     public void SetSpeed(float speed) => _speed = speed;
     private void OnTriggerEnter(Collider other)
     {
@@ -74,6 +74,6 @@ public class Enemy : MonoBehaviour, IPoolObject<Enemy>
         transform.position = Vector3.zero;
         _isFrozen = false;
         _isSlow = false;
-        SetSpeed(_speedCopy);
+        SetSpeed(_initSpeed);
     }
 }

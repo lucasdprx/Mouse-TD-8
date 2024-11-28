@@ -24,6 +24,7 @@ public class DefenseStatCustomEditor : Editor
         {
             SerializeProperty("_slowAttack");
             SerializeProperty("_slowTime");
+            SerializeProperty("_slowMultiplier");
         }
         else
         {
@@ -47,6 +48,7 @@ public class DefenseStat : MonoBehaviour
     public LayerMask _includeLayer;
     public int _price = 400;
     public GameObject _uiUpgrade;
+    public ParticleSystem _particle;
     
     [HideInInspector] public bool _areaAttack = false;
     [HideInInspector] public float _radiusAreaAttack = 2f;
@@ -56,5 +58,6 @@ public class DefenseStat : MonoBehaviour
     
     [HideInInspector] public bool _slowAttack = false;
     [HideInInspector] public float _slowTime = 5.0f;
+    [HideInInspector] public float _slowMultiplier = 0.5f;
     
 }
