@@ -3,20 +3,15 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-    [SerializeField] private GameObject _currentPanel;
-    
     public void PlayScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+        Time.timeScale = 1;
     }
     
     public void OpenPanel(GameObject panel)
     {
-        if (_currentPanel == null) return;
-        
-        _currentPanel.SetActive(false);
-        _currentPanel = panel;
-        _currentPanel.SetActive(true);
+        panel.SetActive(!panel.activeSelf);
     }
     
     public void Quit()

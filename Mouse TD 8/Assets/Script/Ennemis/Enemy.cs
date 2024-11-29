@@ -20,7 +20,6 @@ public class Enemy : MonoBehaviour, IPoolObject<Enemy>
     private void Start()
     {
         _initSpeed = _speed;
-        print(_initSpeed);
     }
 
     private void Update()

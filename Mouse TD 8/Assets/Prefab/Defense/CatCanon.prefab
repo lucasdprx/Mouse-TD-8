@@ -109,7 +109,7 @@ MonoBehaviour:
   - Speed attack decrease by 50%
   - 
   - 
-  _listPrice: 64000000c80000002c01000090010000
+  _listPrice: 960000002c0100002c01000090010000
   _descriptionLevel: {fileID: 4232199209795296517}
   _textPrice: {fileID: 3906260944380996270}
 --- !u!114 &7108443138304098898

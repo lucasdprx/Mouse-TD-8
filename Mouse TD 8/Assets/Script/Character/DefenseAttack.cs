@@ -58,7 +58,7 @@ public class DefenseAttack : MonoBehaviour
                 enemies.Remove(enemyFirst);
                 continue;
             }
-            transform.DOLookAt(enemyFirst.transform.position, 0.25f);
+            transform.DOLookAt(enemyFirst.transform.position, 0);
             ShootEffect shootEffect = defenseStat.GetComponent<ShootEffect>();
             if (shootEffect != null) 
                 shootEffect.enabled = true;
