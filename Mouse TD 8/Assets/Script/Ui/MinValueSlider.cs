@@ -20,7 +20,6 @@ public class MinValueSlider : MonoBehaviour
         {
             slider.minValue = -30;
             slider.value = slider.minValue + 1;
-            print("error");
         }
     }
 }

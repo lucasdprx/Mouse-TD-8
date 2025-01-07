@@ -16,7 +16,7 @@ public class EnemyLife : MonoBehaviour
         new EnemyStat { id = 5, nextId = 4 , color = Color.black  , speed = 3, life = 15 }
     };
     private List<EnemyStat> _colorsCopy = new List<EnemyStat>();
-    private int _currentId = 0;
+    private int _currentId;
 
     private void Awake()
     {

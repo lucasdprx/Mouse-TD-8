@@ -32,7 +32,7 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         _canDrag = Money.instance.GetMoney() >= _defenseStat._price;
         if (_defensePrefab == null || !_canDrag) return;
         
-        _draggedObject = Instantiate(_defensePrefab, GetMousePosition(), Quaternion.identity);
+        _draggedObject = Instantiate(_defensePrefab, GetMousePosition(), _defensePrefab.transform.rotation);
         _spriteRenderer = _draggedObject.GetComponentInChildren<SpriteRenderer>();
         _spriteRenderer.transform.localScale = Vector3.one * _defenseStat._radiusAttack; 
     }

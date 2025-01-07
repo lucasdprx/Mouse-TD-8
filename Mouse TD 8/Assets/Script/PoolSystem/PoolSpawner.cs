@@ -11,7 +11,7 @@ public class PoolSpawner : MonoBehaviour
     private Map _tilesMap;
     private ComponentPool<Enemy> _poolEnnemi;
     private bool _start;
-    private int _waveIndex = 0;
+    private int _waveIndex;
     private const int preAllocationCount = 50;
     private Button _buttonStart;
     private void Awake()

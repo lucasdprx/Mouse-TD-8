@@ -33,7 +33,7 @@ public class OptionManager : MonoBehaviour
             _sliderMusic.value = PlayerPrefs.GetFloat("Music");
         
         if (_dropdownResolution != null)
-            GetResolution();
+            _resolutions = GetResolution();
     }
 
     public void SetFullScreen(bool isFullScreen)
@@ -63,17 +63,17 @@ public class OptionManager : MonoBehaviour
     
     private Resolution[] GetResolution()
     {
-        _resolutions = Screen.resolutions.Select(resolution => 
+        Resolution[] resolutions = Screen.resolutions.Select(resolution => 
             new Resolution { width = resolution.width, height = resolution.height }).Distinct().ToArray();
         _dropdownResolution.ClearOptions();
         List<string> options = new List<string>();
         int currentResolution = 0;
-        for (int i = 0; i < _resolutions.Length; i++)
+        for (int i = 0; i < resolutions.Length; i++)
         {
-            string option = _resolutions[i].width + "x" + _resolutions[i].height;
+            string option = resolutions[i].width + "x" + resolutions[i].height;
             options.Add(option);
             
-            if (_resolutions[i].width == Screen.width && _resolutions[i].height == Screen.height)
+            if (resolutions[i].width == Screen.width && resolutions[i].height == Screen.height)
             {
                 currentResolution = i;
             }
@@ -83,7 +83,7 @@ public class OptionManager : MonoBehaviour
         _dropdownResolution.value = currentResolution;
         _dropdownResolution.RefreshShownValue();
         
-        return _resolutions;
+        return resolutions;
     }
     
     public void SetResolution(int resolutionIndex)

@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class ShootEffect : MonoBehaviour
@@ -7,7 +6,7 @@ public class ShootEffect : MonoBehaviour
     [SerializeField] private float _speed = 22f;
     [SerializeField] private float _duration = 0.08f;
     
-    private float _timer = 0f;
+    private float _timer;
     private GameObject _shootEffect;
 
     private void Awake()

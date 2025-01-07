@@ -50,13 +50,13 @@ public class DefenseStat : MonoBehaviour
     public GameObject _uiUpgrade;
     public ParticleSystem _particle;
     
-    [HideInInspector] public bool _areaAttack = false;
+    [HideInInspector] public bool _areaAttack;
     [HideInInspector] public float _radiusAreaAttack = 2f;
     
-    [HideInInspector] public bool _freezeAttack = false;
+    [HideInInspector] public bool _freezeAttack;
     [HideInInspector] public float _freezeTime = 0.5f;
     
-    [HideInInspector] public bool _slowAttack = false;
+    [HideInInspector] public bool _slowAttack;
     [HideInInspector] public float _slowTime = 5.0f;
     [HideInInspector] public float _slowMultiplier = 0.5f;
     

@@ -2574,6 +2574,10 @@ PrefabInstance:
       propertyPath: _defensePrefab
       value: 
       objectReference: {fileID: 87253729939891153, guid: 4eb76266c68e8cf4f809574b8c386691, type: 3}
+    - target: {fileID: 1270321702915106411, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 535f1e9902577a14f8c77c721b950261, type: 3}
     - target: {fileID: 3344981054059290637, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2654,15 +2658,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6226644251624223996, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6226644251624223996, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
+      propertyPath: m_Color.b
+      value: 0.86415094
+      objectReference: {fileID: 0}
+    - target: {fileID: 6226644251624223996, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
+      propertyPath: m_Color.g
+      value: 0.86415094
+      objectReference: {fileID: 0}
+    - target: {fileID: 6226644251624223996, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
+      propertyPath: m_Color.r
+      value: 0.86415094
+      objectReference: {fileID: 0}
     - target: {fileID: 6797296517293468344, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
       propertyPath: m_Name
       value: Slot Sniper
       objectReference: {fileID: 0}
     - target: {fileID: 7171913091823717079, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
       propertyPath: m_text
-      value: 'Defense
-
-        Sniper'
+      value: Cat Sniper
+      objectReference: {fileID: 0}
+    - target: {fileID: 7171913091823717079, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
+      propertyPath: m_fontSize
+      value: 40.25
       objectReference: {fileID: 0}
     - target: {fileID: 7171913091823717079, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
       propertyPath: m_VerticalAlignment
@@ -3168,6 +3190,8 @@ GameObject:
   - component: {fileID: 892061104}
   - component: {fileID: 892061106}
   - component: {fileID: 892061105}
+  - component: {fileID: 892061108}
+  - component: {fileID: 892061107}
   m_Layer: 5
   m_Name: Slot
   m_TagString: Untagged
@@ -3239,6 +3263,44 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &892061107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 892061103}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.4716981, g: 0.4716981, b: 0.4716981, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &892061108
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 892061103}
+  m_CullTransparentMesh: 1
 --- !u!1001 &907594314
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3489,6 +3551,10 @@ PrefabInstance:
       propertyPath: _defensePrefab
       value: 
       objectReference: {fileID: 87253729939891153, guid: 1d66ced4fb54cb149a67bcabcda00426, type: 3}
+    - target: {fileID: 1270321702915106411, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 713a80eea200b0b4fbda897b6044485a, type: 3}
     - target: {fileID: 3344981054059290637, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3569,15 +3635,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3344981054059290637, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6226644251624223996, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6226644251624223996, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
+      propertyPath: m_Color.b
+      value: 0.86415094
+      objectReference: {fileID: 0}
+    - target: {fileID: 6226644251624223996, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
+      propertyPath: m_Color.g
+      value: 0.86415094
+      objectReference: {fileID: 0}
+    - target: {fileID: 6226644251624223996, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
+      propertyPath: m_Color.r
+      value: 0.86415094
+      objectReference: {fileID: 0}
     - target: {fileID: 6797296517293468344, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
       propertyPath: m_Name
       value: Slot Slow
       objectReference: {fileID: 0}
     - target: {fileID: 7171913091823717079, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
       propertyPath: m_text
-      value: 'Defense
-
-        Slower'
+      value: Cat Slower
+      objectReference: {fileID: 0}
+    - target: {fileID: 7171913091823717079, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
+      propertyPath: m_fontSize
+      value: 40.25
       objectReference: {fileID: 0}
     - target: {fileID: 7171913091823717079, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
       propertyPath: m_VerticalAlignment
@@ -3818,6 +3906,10 @@ PrefabInstance:
       propertyPath: _defensePrefab
       value: 
       objectReference: {fileID: 87253729939891153, guid: e8fc025841c0d3749b1414495767a3e6, type: 3}
+    - target: {fileID: 1270321702915106411, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3f918d90a477f884ba69481b6522b802, type: 3}
     - target: {fileID: 3344981054059290637, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3898,17 +3990,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6226644251624223996, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6226644251624223996, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
+      propertyPath: m_Color.b
+      value: 0.86415094
+      objectReference: {fileID: 0}
+    - target: {fileID: 6226644251624223996, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
+      propertyPath: m_Color.g
+      value: 0.86415094
+      objectReference: {fileID: 0}
+    - target: {fileID: 6226644251624223996, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
+      propertyPath: m_Color.r
+      value: 0.86415094
+      objectReference: {fileID: 0}
     - target: {fileID: 6797296517293468344, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
       propertyPath: m_Name
       value: Slot Canon
       objectReference: {fileID: 0}
     - target: {fileID: 7171913091823717079, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
       propertyPath: m_text
-      value: 'Defense
-
-        Canon
-
-'
+      value: Cat Canon
+      objectReference: {fileID: 0}
+    - target: {fileID: 7171913091823717079, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
+      propertyPath: m_fontSize
+      value: 40.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7218835390710140883, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 45
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4123,6 +4235,10 @@ PrefabInstance:
       propertyPath: _defensePrefab
       value: 
       objectReference: {fileID: 87253729939891153, guid: 25602d3e860c47b499ed21c2cb76acd9, type: 3}
+    - target: {fileID: 1270321702915106411, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3ca433b155f917b4d900ff092f85e432, type: 3}
     - target: {fileID: 3344981054059290637, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4203,17 +4319,73 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6226644251624223996, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6226644251624223996, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
+      propertyPath: m_Color.b
+      value: 0.86415094
+      objectReference: {fileID: 0}
+    - target: {fileID: 6226644251624223996, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
+      propertyPath: m_Color.g
+      value: 0.86415094
+      objectReference: {fileID: 0}
+    - target: {fileID: 6226644251624223996, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
+      propertyPath: m_Color.r
+      value: 0.86415094
+      objectReference: {fileID: 0}
     - target: {fileID: 6797296517293468344, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
       propertyPath: m_Name
       value: Slot Freeze
       objectReference: {fileID: 0}
+    - target: {fileID: 7026459066390123638, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 7026459066390123638, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7026459066390123638, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -30
+      objectReference: {fileID: 0}
     - target: {fileID: 7171913091823717079, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
       propertyPath: m_text
-      value: 'Defense
-
-        Freeze
-
-'
+      value: Cat Freezeur
+      objectReference: {fileID: 0}
+    - target: {fileID: 7171913091823717079, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
+      propertyPath: m_fontSize
+      value: 34.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7171913091823717079, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7171913091823717079, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7171913091823717079, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7171913091823717079, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4280295460
+      objectReference: {fileID: 0}
+    - target: {fileID: 7171913091823717079, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 7218835390710140883, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7218835390710140883, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 45
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6959,6 +7131,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 892061104}
     m_Modifications:
+    - target: {fileID: 1270321702915106411, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 53ccbc09d3d72fe4890d5f2713a723e8, type: 3}
     - target: {fileID: 3344981054059290637, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7039,17 +7215,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6226644251624223996, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6226644251624223996, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
+      propertyPath: m_Color.b
+      value: 0.86415094
+      objectReference: {fileID: 0}
+    - target: {fileID: 6226644251624223996, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
+      propertyPath: m_Color.g
+      value: 0.86415094
+      objectReference: {fileID: 0}
+    - target: {fileID: 6226644251624223996, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
+      propertyPath: m_Color.r
+      value: 0.86415094
+      objectReference: {fileID: 0}
     - target: {fileID: 6797296517293468344, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
       propertyPath: m_Name
       value: Slot Kunai
       objectReference: {fileID: 0}
     - target: {fileID: 7171913091823717079, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
       propertyPath: m_text
-      value: 'Defense
-
-        Kunai
-
-'
+      value: Cat Kunai
+      objectReference: {fileID: 0}
+    - target: {fileID: 7171913091823717079, guid: 76647ff6158895c44b7b2866d92fbb0b, type: 3}
+      propertyPath: m_fontSize
+      value: 40.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -9,11 +9,6 @@ public class MenuManager : MonoBehaviour
         Time.timeScale = 1;
     }
     
-    public void OpenPanel(GameObject panel)
-    {
-        panel.SetActive(!panel.activeSelf);
-    }
-    
     public void Quit()
     {
         Application.Quit();
