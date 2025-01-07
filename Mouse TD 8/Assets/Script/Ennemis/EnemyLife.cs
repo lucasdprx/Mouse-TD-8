@@ -56,5 +56,7 @@ public class EnemyLife : MonoBehaviour
         
         SetColor(_currentId);
     }
+
+    public int GetId() => _colors[_currentId].id;
     public int GetCurrentId() => _currentId;
 }

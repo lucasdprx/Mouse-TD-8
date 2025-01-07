@@ -64,7 +64,7 @@ public class Enemy : MonoBehaviour, IPoolObject<Enemy>
         if (other.gameObject.layer != LayerMask.NameToLayer("End"))
             return;
         
-        Life.instance.RemoveLife(1);
+        Life.instance.RemoveLife(GetComponent<EnemyLife>().GetId() + 1);
         _pool.Release(this);
     }
     private void OnDisable()
