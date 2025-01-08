@@ -5,20 +5,23 @@ using UnityEngine.UI;
 public class PoolSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject _prefabEnnemi;
-    [SerializeField] private List<NumberEnnemi> _waves = new List<NumberEnnemi>();
+    public List<NumberEnnemi> _waves = new List<NumberEnnemi>();
     [SerializeField] private TextMeshProUGUI _textWave;
     
     private Map _tilesMap;
     private ComponentPool<Enemy> _poolEnnemi;
     private bool _start;
-    private int _waveIndex;
+    [HideInInspector] public int _waveIndex;
     private const int preAllocationCount = 50;
     private Button _buttonStart;
+
+    public static PoolSpawner Instance;
     private void Awake()
     {
         _poolEnnemi = new ComponentPool<Enemy>(_prefabEnnemi, 500, preAllocationCount);
         _tilesMap = GetComponent<Map>();
         _textWave.text = "Wave " + 1 + " / " + _waves.Count;
+        Instance = this;
     }
     private void Update()
     {
@@ -30,6 +33,7 @@ public class PoolSpawner : MonoBehaviour
         
         _buttonStart.interactable = true;
         
+        if (_waveIndex - 1 == _waves.Count && Life.instance.GetLife() > 0) EndGame.Instance.SetEndGame(true);
         if (PlayerPrefs.GetInt("AutoPlay") == 1) StartSpawn(_buttonStart);
     }
     public void StartSpawn(Button buttonStart)

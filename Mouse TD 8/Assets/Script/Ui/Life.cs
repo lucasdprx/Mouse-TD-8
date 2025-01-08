@@ -27,6 +27,7 @@ public class Life : MonoBehaviour
         if (life <= 0)
         {
             life = 0; 
+            EndGame.Instance.SetEndGame(false);
             Debug.Log("Game Over");
         }
         
