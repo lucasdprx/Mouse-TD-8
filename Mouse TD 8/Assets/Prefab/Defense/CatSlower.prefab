@@ -68,11 +68,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _radiusAttack: 3
-  _speedAttack: 1.15
+  _speedAttack: 1
   _includeLayer:
     serializedVersion: 2
     m_Bits: 256
-  _price: 125
+  _price: 100
   _uiUpgrade: {fileID: 7834841717503095214}
   _particle: {fileID: 5304749150704693461}
   _areaAttack: 0

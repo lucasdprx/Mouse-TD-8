@@ -67,7 +67,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _radiusAttack: 15
-  _speedAttack: 1
+  _speedAttack: 1.25
   _includeLayer:
     serializedVersion: 2
     m_Bits: 256

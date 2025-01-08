@@ -80,6 +80,8 @@ public class DefenseAttack : MonoBehaviour
         foreach (Enemy enemy in enemies)
         {
             EnemyLife enemyLife = enemy.GetComponent<EnemyLife>();
+            Enemy enemyFirst = GetFirstEnemy(enemies);
+            transform.DOLookAt(enemyFirst.transform.position, 0);
             enemyLife.RemoveLife();
             if (enemyLife.GetCurrentId() < 0) continue;
             if (enemy._isFrozen) continue;
