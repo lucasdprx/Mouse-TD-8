@@ -39,12 +39,14 @@ public class Enemy : MonoBehaviour, IPoolObject<Enemy>
         if (_tileIndex >= _tilesMap.Count) return;
         
         _tileTarget = _tilesMap[_tileIndex];
+        transform.LookAt(_tileTarget);
     }
     public void SetTilesMap(List<Transform> tilesMap)
     {
         _tilesMap = tilesMap;
         _tileTarget = _tilesMap[0];
         _tileIndex = 0;
+        transform.LookAt(_tileTarget);
     }
     public float GetDistanceTraveled() => _distanceTraveled;
     public void SetDistanceTraveled(float distanceTraveled) => _distanceTraveled = distanceTraveled;

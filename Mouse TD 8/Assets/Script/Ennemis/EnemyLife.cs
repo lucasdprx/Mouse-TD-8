@@ -31,7 +31,7 @@ public class EnemyLife : MonoBehaviour
         if (index < 0 || index >= _colors.Count) return;
         
         _currentId = index;
-        _enemy.GetComponentInChildren<MeshRenderer>().material.color = _colors[_currentId].color;
+        _enemy.GetComponentInChildren<SpriteRenderer>().color = _colors[_currentId].color;
         _enemy.SetSpeed(_colors[_currentId].speed);
     }
 
