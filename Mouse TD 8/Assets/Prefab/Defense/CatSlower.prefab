@@ -101,9 +101,7 @@ MonoBehaviour:
   - 'Slow time increase by 50%
 
     Speed attaque decrease by 50%'
-  - Upgrade 3
-  - Upgrade 4
-  _listPrice: 64000000c80000002c01000090010000
+  _listPrice: 64000000c8000000
   _descriptionLevel: {fileID: 5560018648969713213}
   _textPrice: {fileID: 9174348099974237301}
 --- !u!114 &8994274567681662553

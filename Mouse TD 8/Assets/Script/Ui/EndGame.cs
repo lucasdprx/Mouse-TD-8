@@ -27,7 +27,19 @@ public class EndGame : MonoBehaviour
         _nextLevelButton.interactable = isWin;
     }
     
-    public void RestartGame() => SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    public void NextLevel() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    public void MainMenu() => SceneManager.LoadScene(0);
+    public void RestartGame()
+    {
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    public void NextLevel()
+    {
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+    public void MainMenu()
+    {
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene(0);
+    }
 }

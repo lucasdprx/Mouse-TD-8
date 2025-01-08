@@ -96,9 +96,7 @@ MonoBehaviour:
   _listDescription:
   - Speed attack increase by 30%
   - Speed attaque increase by 50%
-  - Upgrade 3
-  - Upgrade 4
-  _listPrice: 64000000c80000002c01000090010000
+  _listPrice: 64000000c8000000
   _descriptionLevel: {fileID: 5560018648969713213}
   _textPrice: {fileID: 9174348099974237301}
 --- !u!114 &2116906936296784950

@@ -95,9 +95,7 @@ MonoBehaviour:
   _listDescription:
   - Raduis attack increase by 30%
   - Raduis attack increase by 50%
-  - Upgrade 3
-  - Upgrade 4
-  _listPrice: 64000000c80000002c01000090010000
+  _listPrice: 64000000c8000000
   _descriptionLevel: {fileID: 6624193828476018090}
   _textPrice: {fileID: 6337197026404081820}
 --- !u!114 &100319017796596940

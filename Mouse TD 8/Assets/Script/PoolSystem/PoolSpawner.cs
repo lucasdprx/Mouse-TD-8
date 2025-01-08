@@ -33,7 +33,7 @@ public class PoolSpawner : MonoBehaviour
         
         _buttonStart.interactable = true;
         
-        if (_waveIndex - 1 == _waves.Count && Life.instance.GetLife() > 0) EndGame.Instance.SetEndGame(true);
+        if (_waveIndex >= _waves.Count && Life.instance.GetLife() > 0) EndGame.Instance.SetEndGame(true);
         if (PlayerPrefs.GetInt("AutoPlay") == 1) StartSpawn(_buttonStart);
     }
     public void StartSpawn(Button buttonStart)
