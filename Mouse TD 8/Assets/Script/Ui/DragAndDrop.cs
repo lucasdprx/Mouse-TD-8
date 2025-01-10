@@ -30,7 +30,7 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     public void OnBeginDrag(PointerEventData eventData)
     {
         _canDrag = Money.instance.GetMoney() >= _defenseStat._price;
-        if (_defensePrefab == null || !_canDrag) return;
+        if (_defensePrefab == null || !_canDrag || eventData.button.ToString() == "Right") return;
         
         _draggedObject = Instantiate(_defensePrefab, GetMousePosition(), _defensePrefab.transform.rotation);
         _spriteRenderer = _draggedObject.GetComponentInChildren<SpriteRenderer>();
@@ -39,7 +39,7 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (_defensePrefab == null || !_canDrag ||_draggedObject == null) return;
+        if (_defensePrefab == null || !_canDrag ||_draggedObject == null || eventData.button.ToString() == "Right") return;
         
         _draggedObject.transform.position = GetMousePosition();
 
@@ -50,7 +50,7 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (_defensePrefab == null || !_canDrag ||_draggedObject == null) return;
+        if (_defensePrefab == null || !_canDrag ||_draggedObject == null || eventData.button.ToString() == "Right") return;
         
         int count = Physics.OverlapSphereNonAlloc(_draggedObject.transform.position, _radius, _listColliders);
 

@@ -77,10 +77,13 @@ public class DefenseAttack : MonoBehaviour
     }
     private void FreezeAttack(List<Enemy> enemies, DefenseStat defenseStat)
     {
+        GlaceEffect glaceEffect = defenseStat.GetComponent<GlaceEffect>();
         foreach (Enemy enemy in enemies)
         {
             EnemyLife enemyLife = enemy.GetComponent<EnemyLife>();
             Enemy enemyFirst = GetFirstEnemy(enemies);
+            if (glaceEffect != null)
+                glaceEffect.StartEffect(defenseStat._radiusAttack);
             transform.DOLookAt(enemyFirst.transform.position, 0);
             enemyLife.RemoveLife();
             if (enemyLife.GetCurrentId() < 0) continue;

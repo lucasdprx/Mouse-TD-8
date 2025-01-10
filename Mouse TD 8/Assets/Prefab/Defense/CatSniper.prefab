@@ -71,7 +71,7 @@ MonoBehaviour:
   _includeLayer:
     serializedVersion: 2
     m_Bits: 256
-  _price: 230
+  _price: 200
   _uiUpgrade: {fileID: 7834841717503095214}
   _particle: {fileID: 4352616497064289975}
   _areaAttack: 0
