@@ -10,10 +10,6 @@ public class UpgradeCanon : BaseUpgrade
             case 2:
                 stat._speedAttack *= 0.5f;
                 break;
-            case 3:
-                break;
-            case 4:
-                break;
         }
     }
 }

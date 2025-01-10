@@ -1,4 +1,3 @@
-using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -35,7 +34,8 @@ public class EndGame : MonoBehaviour
     public void NextLevel()
     {
         Time.timeScale = 1.0f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        int buildIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene("Level " + (buildIndex + 1));
     }
     public void MainMenu()
     {

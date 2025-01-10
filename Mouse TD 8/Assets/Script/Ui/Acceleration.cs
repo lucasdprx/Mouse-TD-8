@@ -11,23 +11,19 @@ public class Acceleration : MonoBehaviour
         {
             case 1:
                 Time.timeScale = 2.0f;
-                _textAcceleration.text = "2x";
+                _textAcceleration.text = "x2";
                 break;
             case 2:
-                Time.timeScale = 3.0f;
-                _textAcceleration.text = "3x";
-                break;
-            case 3:
                 Time.timeScale = 4.0f;
-                _textAcceleration.text = "4x";
+                _textAcceleration.text = "x4";
                 break;
             case 4:
-                Time.timeScale = 1.0f;
-                _textAcceleration.text = "1x";
+                Time.timeScale = 8.0f;
+                _textAcceleration.text = "x8";
                 break;
-            default:
+            case 8:
                 Time.timeScale = 1.0f;
-                _textAcceleration.text = "1x";
+                _textAcceleration.text = "x1";
                 break;
         }
     }

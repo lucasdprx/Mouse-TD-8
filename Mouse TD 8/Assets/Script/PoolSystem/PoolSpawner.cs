@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class PoolSpawner : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class PoolSpawner : MonoBehaviour
     [HideInInspector] public int _waveIndex;
     private const int preAllocationCount = 50;
     private Button _buttonStart;
+    private bool _canSpawn = true;
 
     public static PoolSpawner Instance;
     private void Awake()
@@ -25,15 +27,21 @@ public class PoolSpawner : MonoBehaviour
     }
     private void Update()
     {
-        if (_poolEnnemi.AliveObjectCount > 0)
+        if (_poolEnnemi.AliveObjectCount > 0 || !_canSpawn)
             return;
         
         _start = false;
         if (_buttonStart == null) return;
         
         _buttonStart.interactable = true;
-        
-        if (_waveIndex >= _waves.Count && Life.instance.GetLife() > 0) EndGame.Instance.SetEndGame(true);
+
+        if (_waveIndex >= _waves.Count && Life.instance.GetLife() > 0)
+        {
+            int indexLevel = SceneManager.GetActiveScene().buildIndex;
+            PlayerPrefs.SetInt("Level " + indexLevel, 1);
+            EndGame.Instance.SetEndGame(true);
+            _canSpawn = false;
+        }
         if (PlayerPrefs.GetInt("AutoPlay") == 1) StartSpawn(_buttonStart);
     }
     public void StartSpawn(Button buttonStart)

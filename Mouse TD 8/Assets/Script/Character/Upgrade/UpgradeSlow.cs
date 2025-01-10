@@ -12,10 +12,6 @@ public class UpgradeSlow : BaseUpgrade
                 stat._slowTime *= 1.5f;
                 stat._speedAttack *= 0.5f;
                 break;
-            case 3:
-                break;
-            case 4:
-                break;
         }
     }
 }
