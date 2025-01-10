@@ -42,7 +42,7 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         if (_defensePrefab == null || !_canDrag ||_draggedObject == null || eventData.button.ToString() == "Right") return;
         
         _draggedObject.transform.position = GetMousePosition();
-
+        
         //Set color of sprite
         int count = Physics.OverlapSphereNonAlloc(_draggedObject.transform.position, _radius, _listColliders);
         _spriteRenderer.color = count > 1 ? Color.red - new Color{ a = 0.5f }: Color.green- new Color{ a = 0.5f };

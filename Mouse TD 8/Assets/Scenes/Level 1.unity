@@ -5210,9 +5210,9 @@ RectTransform:
   - {fileID: 1657668043}
   - {fileID: 1937378183}
   - {fileID: 973256205}
+  - {fileID: 562007969}
   - {fileID: 1653615845}
   - {fileID: 1253934866}
-  - {fileID: 562007969}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -5730,7 +5730,7 @@ MonoBehaviour:
     - level: 2
       number: 75
     - level: 3
-      number: 30
+      number: 40
   _textWave: {fileID: 1657668044}
   _waveIndex: 0
 --- !u!4 &2066224704
